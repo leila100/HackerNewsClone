@@ -1,18 +1,20 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from "next/head";
+import Header from "@components/Header";
+import Main from "@components/Main";
+import Footer from "@components/Footer";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className='container'>
       <Head>
-        <title>Next Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>The Hacker News</title>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>
         <Header />
-        <p className="description">
+        <Main />
+        <p className='description'>
           Get started by editing <code>pages/index.js</code>
         </p>
       </main>
@@ -50,9 +52,8 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+            Droid Sans, Helvetica Neue, sans-serif;
         }
 
         * {
@@ -60,5 +61,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
