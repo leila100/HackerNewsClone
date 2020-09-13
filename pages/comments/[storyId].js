@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Head from "next/head";
+import Link from "next/link";
 
 import Footer from "@components/Footer";
 import { CommentsList, Comment } from "../../styles/comments.style";
@@ -48,6 +49,9 @@ export default function Comments() {
 
       <main>
         <h2>{title}</h2>
+        <Link href='/' as='/'>
+          <a>Main</a>
+        </Link>
         <CommentsList>
           {comments.map((comment) => (
             <Comment key={comment.id}>
