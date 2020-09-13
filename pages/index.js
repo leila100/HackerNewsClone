@@ -20,9 +20,6 @@ export default function Home() {
 
       <style jsx>{`
         .container {
-           {
-            /* height: 100vh; */
-          }
           display: flex;
           flex-direction: column;
           justify-content: center;

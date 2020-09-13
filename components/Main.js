@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 import { StoriesContainer, Stories, Story } from "../styles/stories.style";
 
@@ -53,16 +54,18 @@ export default function Main() {
       ) : (
         <Stories>
           {stories.map((story) => (
-            <Story key={story.id}>
-              <h2>{story.title}</h2>
-              <h3>
-                {`${months[new Date(story.time).getMonth()]} ${new Date(story.time).getDate()},  ${new Date(
-                  story.time
-                ).getFullYear()}`}{" "}
-                - {story.by}
-              </h3>
-              <a href={story.url}>Link to story</a>
-            </Story>
+            <Link href='/comments/[storyId]' as={`/comments/${story.id}`} key={story.id}>
+              <Story>
+                <h2>{story.title}</h2>
+                <h3>
+                  {`${months[new Date(story.time).getMonth()]} ${new Date(story.time).getDate()},  ${new Date(
+                    story.time
+                  ).getFullYear()}`}{" "}
+                  - {story.by}
+                </h3>
+                <a href={story.url}>Link to story</a>
+              </Story>
+            </Link>
           ))}
         </Stories>
       )}
