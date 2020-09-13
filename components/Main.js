@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
+
+import { StoriesContainer, Stories, Story } from "../styles/stories.style";
+
 export default function Main() {
   const [stories, setStories] = useState([]);
 
@@ -30,18 +32,40 @@ export default function Main() {
   }, []);
 
   console.log(stories);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   return (
-    <>
-      <h2>List of stories</h2>
+    <StoriesContainer>
       {stories.length === 0 ? (
         <h3>No stories</h3>
       ) : (
-        <ul>
+        <Stories>
           {stories.map((story) => (
-            <li key={story.id}>{story.title}</li>
+            <Story key={story.id}>
+              <h2>{story.title}</h2>
+              <h3>
+                {`${months[new Date(story.time).getMonth()]} ${new Date(story.time).getDate()},  ${new Date(
+                  story.time
+                ).getFullYear()}`}{" "}
+                - {story.by}
+              </h3>
+              <a href={story.url}>Link to story</a>
+            </Story>
           ))}
-        </ul>
+        </Stories>
       )}
-    </>
+    </StoriesContainer>
   );
 }

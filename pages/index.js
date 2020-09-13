@@ -14,16 +14,15 @@ export default function Home() {
       <main>
         <Header />
         <Main />
-        <p className='description'>
-          Get started by editing <code>pages/index.js</code>
-        </p>
       </main>
 
       <Footer />
 
       <style jsx>{`
         .container {
-          height: 100vh;
+           {
+            /* height: 100vh; */
+          }
           display: flex;
           flex-direction: column;
           justify-content: center;
