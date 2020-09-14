@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { Card, Button, CardTitle, CardText } from "reactstrap";
 
 import { StoriesContainer, Stories, Story } from "../styles/stories.style";
 
@@ -54,16 +55,18 @@ export default function Main() {
         <Stories>
           {stories.map((story) => (
             <Link href='/comments/[storyId]' as={`/comments/${story.id}`} key={story.id}>
-              <Story>
-                <h2>{story.title}</h2>
-                <h3>
+              <Card body>
+                <CardTitle tag='h3'>{story.title}</CardTitle>
+                <CardText>
                   {`${months[new Date(parseInt(story.time) * 1000).getMonth()]} ${new Date(
                     parseInt(story.time) * 1000
                   ).getDate()},  ${new Date(parseInt(story.time) * 1000).getFullYear()}`}{" "}
                   - {story.by}
-                </h3>
-                <a href={story.url}>Link to story</a>
-              </Story>
+                </CardText>
+                <Button>
+                  <a href={story.url}>Link to story</a>
+                </Button>
+              </Card>
             </Link>
           ))}
         </Stories>
