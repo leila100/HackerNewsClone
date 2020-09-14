@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Head from "next/head";
 import Link from "next/link";
+import { Card, Button, CardTitle, CardText } from "reactstrap";
 
 import Footer from "@components/Footer";
 import { CommentsList, Comment } from "../../styles/comments.style";
@@ -68,15 +69,17 @@ export default function Comments() {
           </Link>
           <h2>{title}</h2>
           {comments.map((comment) => (
-            <Comment key={comment.id}>
-              <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-              <h3>
-                {`${months[new Date(parseInt(comment.time) * 1000).getMonth()]} ${new Date(
-                  parseInt(comment.time) * 1000
-                ).getDate()},  ${new Date(parseInt(comment.time) * 1000).getFullYear()}`}{" "}
-                - {comment.by}
-              </h3>
-            </Comment>
+            <Card body key={comment.id}>
+              <CardText>
+                <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+                <h3>
+                  {`${months[new Date(parseInt(comment.time) * 1000).getMonth()]} ${new Date(
+                    parseInt(comment.time) * 1000
+                  ).getDate()},  ${new Date(parseInt(comment.time) * 1000).getFullYear()}`}
+                  - {comment.by}
+                </h3>
+              </CardText>
+            </Card>
           ))}
         </CommentsList>
       </main>

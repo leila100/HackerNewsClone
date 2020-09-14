@@ -13,6 +13,12 @@ export const CommentsList = styled.section`
   }
   h2 {
     text-align: center;
+    margin: 20px 0;
+  }
+  h3 {
+    font-size: 1.2rem;
+    color: grey;
+    margin-top: 20px;
   }
 `;
 
