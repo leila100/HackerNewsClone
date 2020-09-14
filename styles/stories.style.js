@@ -17,7 +17,9 @@ export const Stories = styled.div`
     flex-direction: column;
     justify-content: space-between;
     border-radius: 8px;
-    cursor: pointer;
+    a {
+      color: black;
+    }
     p {
       color: grey;
     }

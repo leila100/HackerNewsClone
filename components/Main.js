@@ -54,20 +54,22 @@ export default function Main() {
       ) : (
         <Stories>
           {stories.map((story) => (
-            <Link href='/comments/[storyId]' as={`/comments/${story.id}`} key={story.id}>
-              <Card body>
-                <CardTitle tag='h3'>{story.title}</CardTitle>
-                <CardText>
-                  {`${months[new Date(parseInt(story.time) * 1000).getMonth()]} ${new Date(
-                    parseInt(story.time) * 1000
-                  ).getDate()},  ${new Date(parseInt(story.time) * 1000).getFullYear()}`}{" "}
-                  - {story.by}
-                </CardText>
-                <Button>
-                  <a href={story.url}>Link to story</a>
-                </Button>
-              </Card>
-            </Link>
+            <Card body>
+              <CardTitle tag='h3'>
+                <Link href='/comments/[storyId]' as={`/comments/${story.id}`} key={story.id}>
+                  {story.title}
+                </Link>
+              </CardTitle>
+              <CardText>
+                {`${months[new Date(parseInt(story.time) * 1000).getMonth()]} ${new Date(
+                  parseInt(story.time) * 1000
+                ).getDate()},  ${new Date(parseInt(story.time) * 1000).getFullYear()}`}{" "}
+                - {story.by}
+              </CardText>
+              <Button>
+                <a href={story.url}>Link to story</a>
+              </Button>
+            </Card>
           ))}
         </Stories>
       )}
