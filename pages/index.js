@@ -24,22 +24,17 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          width: 100%;
         }
 
         main {
+          width: 100%;
           padding: 5rem 0;
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
         }
       `}</style>
 
