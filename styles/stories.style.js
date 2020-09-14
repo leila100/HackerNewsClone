@@ -15,7 +15,7 @@ export const Story = styled.a`
   width: 30%;
   margin: 15px;
   padding: 5px;
-  box-shadow: 5px 10px #888888;
+  box-shadow: 5px 10px #395697;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,5 +30,11 @@ export const Story = styled.a`
   h2,
   h3 {
     margin: 5px 0;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #395697;
+    text-align: left;
   }
 `;

@@ -11,7 +11,7 @@ export default function Main() {
     const baseUrl = "https://hacker-news.firebaseio.com/v0";
     try {
       const storiesIds = await axios.get(`${baseUrl}/topstories.json?print=pretty`);
-      const promises = storiesIds.data.slice(0, 10).map(
+      const promises = storiesIds.data.slice(0, 50).map(
         (id) =>
           new Promise((resolve, reject) => {
             axios
@@ -32,7 +32,6 @@ export default function Main() {
     fetchStories();
   }, []);
 
-  console.log(stories);
   const months = [
     "January",
     "February",
@@ -58,9 +57,9 @@ export default function Main() {
               <Story>
                 <h2>{story.title}</h2>
                 <h3>
-                  {`${months[new Date(story.time).getMonth()]} ${new Date(story.time).getDate()},  ${new Date(
-                    story.time
-                  ).getFullYear()}`}{" "}
+                  {`${months[new Date(parseInt(story.time) * 1000).getMonth()]} ${new Date(
+                    parseInt(story.time) * 1000
+                  ).getDate()},  ${new Date(parseInt(story.time) * 1000).getFullYear()}`}{" "}
                   - {story.by}
                 </h3>
                 <a href={story.url}>Link to story</a>

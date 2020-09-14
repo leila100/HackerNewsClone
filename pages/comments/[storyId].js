@@ -40,6 +40,20 @@ export default function Comments() {
     fetchComments();
   }, []);
 
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   return (
     <div className='container'>
       <Head>
@@ -48,15 +62,20 @@ export default function Comments() {
       </Head>
 
       <main>
-        <h2>{title}</h2>
-        <Link href='/' as='/'>
-          <a>Main</a>
-        </Link>
         <CommentsList>
+          <Link href='/' as='/'>
+            <a>{`<--- Back to Main`}</a>
+          </Link>
+          <h2>{title}</h2>
           {comments.map((comment) => (
             <Comment key={comment.id}>
               <div dangerouslySetInnerHTML={{ __html: comment.text }} />
-              <h3>{comment.by}</h3>
+              <h3>
+                {`${months[new Date(parseInt(comment.time) * 1000).getMonth()]} ${new Date(
+                  parseInt(comment.time) * 1000
+                ).getDate()},  ${new Date(parseInt(comment.time) * 1000).getFullYear()}`}{" "}
+                - {comment.by}
+              </h3>
             </Comment>
           ))}
         </CommentsList>
